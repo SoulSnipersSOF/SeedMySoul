@@ -1,1 +1,12 @@
-<-- paste everything above here (keep triple quotes out) -->
+﻿# ----- Visual Studio temp -----
+.vs/
+bin/
+obj/
+*.user
+*.suo
+
+# ----- AutoHotkey outputs -----
+dist/
+*.exe
+*.log
+*.lock
