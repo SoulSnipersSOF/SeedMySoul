@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWindowsForms>true</UseWindowsForms>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- stop MSBuild from generating any COM wrappers -->
+		<RegisterForComInterop>false</RegisterForComInterop>
+	</PropertyGroup>
+
+	<!-- keep your embedded AHK source (optional) -->
+	<ItemGroup>
+		<None Remove="seedsoul.ahk" />
+		<EmbeddedResource Include="seedsoul.ahk" />
+	</ItemGroup>
+
+	<!-- keep Newtonsoft.Json -->
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+	<!-- keep AHK executables copied to output -->
+	<ItemGroup>
+		<None Update="AutoHotkey\32bit\AutoHotkey32.exe"
+			  CopyToOutputDirectory="PreserveNewest" />
+		<None Update="AutoHotkey\64bit\AutoHotkey64.exe"
+			  CopyToOutputDirectory="PreserveNewest" />
+		<None Update="AutoHotkey\AutoHotkey32.exe"
+			  CopyToOutputDirectory="PreserveNewest" />
+		<None Update="AutoHotkey\AutoHotkey64.exe"
+			  CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+
+</Project>
